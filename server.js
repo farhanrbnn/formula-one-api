@@ -1,9 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 const app = express();
 
-const { dbUrl } = require('./config/db')
-const postRoute = require('./routes/post')
+const { dbUrl } = require('./config/db');
+const postRoute = require('./routes/post');
+
+app.use(bodyParser.json())
 
 mongoose.connect(dbUrl, {
 	useNewUrlParser: true,
@@ -17,10 +20,9 @@ mongoose.connect(dbUrl, {
 })
 
 app.use('/post', postRoute)
-app.use('/', (req,res)=>{
+app.get('/', (req,res)=>{
 	res.send('hello from home')
 })
-
 
 app.listen(5000,() =>{
 	console.log('server listening')

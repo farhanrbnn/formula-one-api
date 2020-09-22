@@ -2,9 +2,10 @@
   <div class="hello">
     <h3 align="center">Formula One API</h3>
     <h4>Select Team</h4>
-    <div id="dropdown">
-      <b-form-select v-model="selected" :options="options"></b-form-select>
+    <div>
+      <b-form-select id="dropdown" v-model="selected" :options="options"></b-form-select>
     </div>
+       <b-button class="mt-5" variant="primary">Generate Key</b-button>
   </div>
 </template>
 
@@ -18,6 +19,5 @@ export default {
 <style scoped>
 #dropdown {
   width: 500px;
-
 }
 </style>

@@ -8,17 +8,18 @@ router.post('/', async (req, res)=>{
 		teamPrincipal: req.body.teamPrincipal,
 		base: req.body.base,
 		powerUnit: req.body.powerUnit,
-		chassis: req.body.chassis
-	})
+		chassis: req.body.chassis,
+		driver:req.body.driver
+	});
 
 	try {
 		const savedPost = await post.save();
 		res.json(savedPost);
 
 	} catch (err) {
-		res.json({message:err})
+		res.json({message:err});
 	}
 
-})
+});
 
 module.exports = router; 

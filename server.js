@@ -23,7 +23,7 @@ mongoose.connect(dbUrl, {
 })
 
 // ROUTE
-app.use('/post', postRoute)
+app.use('/api/post', postRoute)
 app.use('/api', getRoute)
 app.get('/', (req,res)=>{
 	res.send('hello from home')

@@ -20,12 +20,14 @@
       <b-form-group id="input-group-6" label="Driver Name" label-for="input-5">
         <b-form-input id="input-6" placeholder="Enter Driver Name" v-model="driver.name"></b-form-input>
       </b-form-group>
-       <b-button class="mt-5" variant="primary">Submit</b-button>
+       <b-button class="mt-5" variant="primary" @click="postData">Submit</b-button>
     </div>
   </div>
 </template>
 
 <script>
+import DataService from '../web_service/services'
+
 export default {
   name: 'edit',
   data () {
@@ -39,8 +41,29 @@ export default {
         name: ''
       }
     }
-  }
+  },
+  method: {
+    postData () {
+      let data = {
+        Constructor: this.Constructor,
+        teamPrinciple: this.teamPrinciple,
+        base: this.base,
+        powerUnit: this.powerUnit,
+        chassis: this.chassis,
+        driver: {
+          name: this.name
+        }
+      }
 
+      DataService.create(data)
+        .then((res) => {
+          console.log(res.data)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    }
+  }
 }
 </script>
 

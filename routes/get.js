@@ -17,7 +17,7 @@ router.get('/', async (req, res)=>{
 
 router.get('/:id', async(req, res)=>{
 	try{
-		const getData = await Post.findById(req.params.id);
+		const getData = await Post.findById(req.params.id, {_id:0});
 		res.json(getData);
 
 	} catch (err) {

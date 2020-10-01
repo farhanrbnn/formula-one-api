@@ -40,7 +40,7 @@ export default {
       base: '',
       powerUnit: '',
       chassis: '',
-      name:'',
+      name: '',
       nationality: ''
     }
   },

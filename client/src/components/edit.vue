@@ -17,12 +17,18 @@
       <b-form-group id="input-group-5" label="Car Chassis" label-for="input-5">
         <b-form-input id="input-5" placeholder="Enter Chassis Code" v-model="chassis"></b-form-input>
       </b-form-group>
-      <b-form-group id="input-group-6" label="Driver Name" label-for="input-5">
-        <b-form-input id="input-6" placeholder="Enter Driver Name" v-model="name"></b-form-input>
-      </b-form-group>
-      <b-form-group id="input-group-7" label="Driver Nationality" label-for="input-5">
-        <b-form-input id="input-7" placeholder="Enter Driver Nationality" v-model="nationality"></b-form-input>
-      </b-form-group>
+      <b-row>
+        <b-col>
+          <b-form-group id="input-group-6" label="Driver #1 Name" label-for="input-6">
+            <b-form-input id="input-6" placeholder="Enter Driver Name" v-model="driver.name"></b-form-input>
+          </b-form-group>
+        </b-col>
+         <b-col>
+           <b-form-group id="input-group-7" label="Driver #1 Nationality" label-for="input-7">
+            <b-form-input id="input-7" placeholder="Enter Driver Nationality" v-model="driver.nationality"></b-form-input>
+          </b-form-group>
+         </b-col>
+       </b-row>
        <b-button class="mt-5" variant="primary" @click="postData">Submit</b-button>
     </div>
   </div>
@@ -40,8 +46,10 @@ export default {
       base: '',
       powerUnit: '',
       chassis: '',
-      name:'',
-      nationality: ''
+      driver: {
+        name: '',
+        nationality: ''
+      }
     }
   },
   methods: {
@@ -52,18 +60,21 @@ export default {
         base: this.base,
         powerUnit: this.powerUnit,
         chassis: this.chassis,
-        driver: {
-          name: this.name,
-          nationality: this.nationality
-        }
+        driver: this.driver
       }
-      console.log(data)
+
       DataService.create(data)
         .then((res) => {
-          console.log(res.data)
+          alert('data input succeeded')
+          this.Constructor = ' '
+          this.teamPrincipal = ' '
+          this.base = ' '
+          this.powerUnit = ' '
+          this.chassis = ' '
+          this.driver = ' '
         })
         .catch((err) => {
-          console.log(err)
+          alert(err)
         })
     }
   }

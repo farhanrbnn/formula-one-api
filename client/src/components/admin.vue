@@ -8,6 +8,7 @@
          <br/>
          <label for="defaultFormLoginPasswordEx" class="grey-text">password</label>
          <input type="password" id="defaultFormLoginPasswordEx" class="form-control"/>
+         <p>don't have an account? <a href="">Sign Up</a></p>
          <div class="text-center mt-4">
             <b-button class="mt-3" variant="primary">Log In</b-button>
         </div>

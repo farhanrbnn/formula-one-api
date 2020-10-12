@@ -33,9 +33,6 @@ mongoose.connect(dbUrl, {
 // ROUTE
 app.use('/api/post', postRoute)
 app.use('/api', getRoute)
-app.get('/', (req,res)=>{
-	res.send('hello from home')
-});
 
 app.listen(5000,() =>{
 	console.log('server listening') 

@@ -7,8 +7,11 @@
          <b-form-select-option :value="data._id" v-for="data in datas" :key="data.Constructor">{{ data.Constructor }}</b-form-select-option>
       </b-form-select>
     </div>
-       <b-button class="mt-5" variant="primary">Generate Key</b-button>
-       <h4>{{ link }}{{ selected }}</h4>
+       <b-button class="mt-5" v-on:click="seen = true" variant="primary">Generate Key</b-button>
+         <h4>API link</h4>
+       <div v-if="seen" id="api-link">
+         <h3>{{link}}{{selected}}</h3>
+       </div>
   </div>
 </template>
 
@@ -21,10 +24,11 @@ export default {
     return {
       datas: null,
       selected: null,
-      link: 'http://localhost:5000/api/'
+      link: 'http://localhost:5000/api/',
+      seen: false
     }
   },
-  mounted () {
+  created () {
     DataService.getAll()
       .then(res => {
         this.datas = res.data.data
@@ -39,5 +43,8 @@ export default {
 <style scoped>
 #dropdown {
   width: 500px;
+}
+#api-link {
+  margin-top: 20px;
 }
 </style>

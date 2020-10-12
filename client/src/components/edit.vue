@@ -46,15 +46,10 @@ export default {
       base: '',
       powerUnit: '',
       chassis: '',
-<<<<<<< HEAD
       driver: {
         name: '',
         nationality: ''
       }
-=======
-      name: '',
-      nationality: ''
->>>>>>> 59a35a4d89106064d0bc4a4d14467b48237d0b48
     }
   },
   methods: {
